@@ -1,0 +1,783 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Assignment-1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6708f488-3090-4ae6-b9ac-f79d8eda3602" class="page sans"><header><h1 class="page-title">Assignment-1</h1></header><div class="page-body"><h3 id="445aebe3-f7f3-48bd-97ad-91c29ca2a8b9" class=""><details open=""><summary>Q1 Explain the objectives and functionalities of operating system.</summary></details></h3><div class="indented"><p id="c70212e8-bdb0-420b-aed6-596b753a0325" class="">
+An operating system (OS) is the most essential software that manages the hardware and software resources of a computer system. Its primary objective is to provide a user-friendly interface and manage system resources efficiently, enabling users and other software to interact with hardware in a convenient and secure manner.
+Some of the key objectives of an operating system include:
+Resource management: The OS manages the hardware resources such as memory, CPU, and input/output devices, allocating them to different processes and ensuring their efficient use.
+Process management: The OS provides a mechanism for managing processes, including creating, starting, stopping, and scheduling them for execution.
+Memory management: The OS manages the computer&#x27;s memory, providing a virtual memory system that enables programs to use more memory than physically available.
+File management: The OS provides a file system that allows users to store, access, and manage data stored on disks and other storage devices.
+Security: The OS provides various security features to protect the system and data from unauthorized access and malicious software.
+User interface: The OS provides a user-friendly interface that allows users to interact with the computer system easily.
+Some of the key functionalities of an operating system include:
+Process and memory management: The OS manages the allocation and scheduling of resources for different processes and handles memory allocation and deallocation.
+Input/output management: The OS provides a mechanism for managing input/output operations, including the use of device drivers to communicate with hardware devices.
+File management: The OS manages file access and storage, including creating, deleting, and modifying files.
+Network management: The OS provides a network stack that enables communication between different devices on a network.
+Security management: The OS provides various security features such as user authentication, access control, and virus protection.
+Application support: The OS provides a framework for running and managing applications, including libraries and system calls that enable developers to write software that interacts with the hardware and other software on the system.
+Overall, the primary objectives and functionalities of an operating system are to provide a stable and secure computing environment that efficiently manages hardware and software resources, enables user interaction, and supports the execution of applications.</p></div><h3 id="9697bdd0-7dc5-4c54-8d1c-7e03cbd7c410" class=""><details open=""><summary>Q2) Explain Batch operating system in detail</summary></details></h3><div class="indented"><p id="8e5e85bb-3dda-4553-9a24-857c1c3157b3" class="">Batch operating system is a type of operating system in which the computer executes a series of programs (known as batch jobs) without human intervention. The term &quot;batch&quot; refers to a set of similar tasks that are executed together as a batch, rather than individually. Batch operating systems were commonly used in the early days of computing when computers were slow and expensive, and operators needed to maximize the use of resources.In a batch operating system, a user submits a set of jobs to the computer through a job control language or job control program. The jobs are stored on a job queue and executed one after the other, without any user intervention. The computer operator can monitor the progress of the batch jobs and handle any errors that occur during execution.The key features of a batch operating system are:Job scheduling: The batch operating system schedules jobs in a queue based on their priority, resource requirements, and other criteria.Job control language: The batch operating system provides a job control language (JCL) that allows the user to specify the resources required by each job, such as memory, CPU time, and input/output devices.Spooling: The batch operating system uses a spooling system to manage the input and output of jobs. Input data is spooled to disk before being processed, and output data is spooled to disk before being sent to the printer or other output device.Job monitoring: The batch operating system monitors the progress of each job and generates reports on the completion status, errors, and resource usage.Resource allocation: The batch operating system manages system resources such as memory, CPU, and input/output devices, allocating them to jobs based on their requirements.Some of the advantages of using a batch operating system include:Efficient use of resources: Batch operating systems allow users to maximize the use of computer resources by submitting multiple jobs at once.Reduced operator intervention: Batch operating systems do not require constant operator intervention, freeing up the operator to focus on other tasks.Improved system utilization: Batch operating systems allow users to schedule jobs during periods of low system utilization, improving overall system efficiency.Cost-effective: Batch operating systems are cost-effective because they allow users to share resources, reducing the need for additional hardware.However, batch operating systems also have some disadvantages, such as:Slow response time: Batch operating systems have slow response times because jobs are executed one after the other, without any user intervention.Limited interactivity: Batch operating systems are not suitable for interactive applications because they do not allow users to interact with the system in real-time.Lack of flexibility: Batch operating systems are inflexible because jobs are executed in a predetermined sequence and cannot be changed during execution.Overall, batch operating systems are useful in situations where users need to process large amounts of data, run long-running jobs, or maximize the use of system resources. However, they are not suitable for interactive applications or real-time processing.</p><ul id="8888a748-a4af-40c1-8b42-39e0cc752683" class="toggle"><li><details open=""><summary>Q5</summary></details></li></ul><ul id="59eb9f6a-39c7-41ae-bb5a-f2ef27b511a9" class="toggle"><li><details open=""><summary>Q3</summary></details></li></ul><ul id="39bb2182-c15a-421d-979d-96b03a00cab4" class="toggle"><li><details open=""><summary>Q4</summary></details></li></ul></div><ul id="d55c3d1a-ff12-47fb-b0f5-e0f1eda0017d" class="toggle"><li><details open=""><summary>Q3</summary><p id="1c929493-6907-46f2-bed6-b7a8b2580005" class="">
+a] Timesharing system:
+A timesharing system is a type of operating system that allows multiple users to share a computer&#x27;s resources simultaneously. In a timesharing system, the CPU time is shared among multiple users, allowing each user to interact with the system in real-time. Timesharing systems are designed to provide quick response times to users, allowing them to run interactive applications and work collaboratively on shared resources.
+The key features of a timesharing system are:
+Time slicing: The timesharing system uses time slicing to allocate CPU time to multiple users. Each user is given a small time slice to execute their task, and the CPU switches between tasks in a round-robin fashion.
+Terminal handling: Timesharing systems provide terminal handling capabilities that allow users to interact with the system through a command-line interface or graphical user interface.
+Memory management: Timesharing systems use virtual memory techniques to provide each user with a separate address space, allowing them to run their programs without interfering with other users&#x27; programs.
+Job scheduling: Timesharing systems use sophisticated job scheduling algorithms to manage multiple users&#x27; jobs, prioritizing them based on their resource requirements and other criteria.
+Some of the advantages of using a timesharing system include:
+Improved resource utilization: Timesharing systems allow multiple users to share resources, reducing the need for additional hardware.
+Better system performance: Timesharing systems can improve system performance by allowing multiple users to work simultaneously, reducing the time required to complete tasks.
+Improved user productivity: Timesharing systems provide quick response times, allowing users to interact with the system in real-time, increasing their productivity.
+However, timesharing systems also have some disadvantages, such as:
+Security risks: Timesharing systems have security risks because users share resources, making it easier for malicious users to access sensitive information.
+Increased complexity: Timesharing systems are more complex than other types of operating systems because they must manage multiple users&#x27; resources simultaneously.
+Hardware requirements: Timesharing systems require more powerful hardware than other types of operating systems to handle multiple users&#x27; simultaneous requests.
+b] Multiprogramming:
+Multiprogramming is a type of operating system that allows multiple programs to run simultaneously on a computer system. In a multiprogramming system, the CPU time is shared among multiple programs, allowing each program to execute a portion of its task before giving control to another program. Multiprogramming systems are designed to improve resource utilization and reduce the time required to complete tasks.
+The key features of a multiprogramming system are:
+Process scheduling: Multiprogramming systems use process scheduling algorithms to manage multiple processes&#x27; execution, prioritizing them based on their resource requirements and other criteria.
+Memory management: Multiprogramming systems use virtual memory techniques to provide each process with a separate address space, allowing them to run their programs without interfering with other processes&#x27; programs.
+Input/output management: Multiprogramming systems use input/output (I/O) management techniques to manage the input/output operations of multiple processes simultaneously.
+Resource allocation: Multiprogramming systems manage system resources such as memory, CPU, and input/output devices, allocating them to processes based on their requirements.
+Some of the advantages of using a multiprogramming system include:
+Improved resource utilization: Multiprogramming systems allow multiple programs to share resources, reducing the need for additional hardware.
+Increased system performance: Multiprogramming systems can improve system performance by allowing multiple programs to execute simultaneously, reducing the time required to complete tasks.
+Improved user productivity: Multiprogramming systems provide quick response times, allowing users to interact with the system in real-time, increasing their productivity.
+However, multiprogramming systems also have some disadvantages</p></details></li></ul><ul id="87a0003e-2157-4ff0-a670-9cb411e82c24" class="toggle"><li><details open=""><summary>Q4</summary><p id="3ce1cfe4-95aa-46cd-a6a6-f30afaa65dcc" class="">Distributed System:
+A distributed system is a type of computer system that consists of multiple interconnected computers that communicate and coordinate their actions through message passing. In a distributed system, each computer (or node) operates independently, but they work together to achieve a common goal.
+The key features of a distributed system are:
+Resource sharing: Distributed systems allow multiple computers to share resources, such as CPU, memory, and storage devices.
+Scalability: Distributed systems can be scaled horizontally by adding more computers to the system, allowing them to handle large workloads.
+Fault tolerance: Distributed systems can be designed to be fault-tolerant, allowing them to continue operating even if some nodes fail.
+Transparency: Distributed systems provide transparency, allowing users to access resources and services without knowing their physical location.
+Some of the advantages of using a distributed system include:
+Improved resource utilization: Distributed systems allow multiple computers to share resources, reducing the need for additional hardware.
+Increased system performance: Distributed systems can improve system performance by distributing the workload among multiple computers.
+Improved availability: Distributed systems can be designed to be fault-tolerant, ensuring that the system remains available even if some nodes fail.
+However, distributed systems also have some disadvantages, such as:
+Increased complexity: Distributed systems are more complex than other types of computer systems because they must manage multiple computers and their interactions.
+Security risks: Distributed systems have security risks because they involve multiple computers and communication channels, making it easier for malicious users to access sensitive information.
+Real-Time System:
+A real-time system is a type of computer system that is designed to process data and respond to events in real-time. In a real-time system, the response time is critical, and the system must respond to events within a specified time frame. Real-time systems are used in applications such as control systems, medical equipment, and aviation systems.
+The key features of a real-time system are:
+Predictable response time: Real-time systems must provide a predictable response time to events, ensuring that the system responds within a specified time frame.
+Deadline management: Real-time systems use deadline management techniques to ensure that tasks are completed within a specified time frame.
+Prioritization: Real-time systems prioritize tasks based on their importance and deadlines, ensuring that critical tasks are completed first.
+Interrupt handling: Real-time systems use interrupt handling techniques to handle external events that require immediate attention.
+Some of the advantages of using a real-time system include:
+Predictable response time: Real-time systems provide a predictable response time to events, ensuring that the system responds within a specified time frame.
+High reliability: Real-time systems are designed to be highly reliable, reducing the risk of system failure.
+Increased safety: Real-time systems are used in applications such as control systems and aviation systems, where safety is critical.
+However, real-time systems also have some disadvantages, such as:
+Limited flexibility: Real-time systems are designed for specific applications, making them less flexible than other types of computer systems.
+Increased complexity: Real-time systems are more complex than other types of computer systems because they must respond to events within a specified time frame.
+Higher cost: Real-time systems are more expensive than other types of computer systems due to their specialized hardware and software requirements</p></details></li></ul><ul id="681a2cdc-a8c0-4001-8540-1ddcd65d484b" class="toggle"><li><details open=""><summary>Q5)</summary><p id="9c30b06c-eb0f-442d-87cd-01240b64e442" class="">System calls, also known as kernel calls, are a programming interface provided by the operating system that allows applications to request services from the operating system. System calls provide a way for applications to access low-level functions of the operating system, such as managing files, allocating memory, and creating processes.</p><p id="743b35a2-42fe-47d6-a60d-b5bd35b151ff" class="">Here are some examples of common system calls:</p><ol type="1" id="0cb41b25-90d7-4084-90f1-5de59933db16" class="numbered-list" start="1"><li>Open(): The open() system call is used to open a file and obtain a file descriptor, which can be used to read from and write to the file.</li></ol><ol type="1" id="b0974bc5-0331-46fe-b901-89c6784d8b29" class="numbered-list" start="2"><li>Read(): The read() system call is used to read data from a file or other input stream.</li></ol><ol type="1" id="65ce2624-c60f-4fa0-ad3c-4a046a6ac85e" class="numbered-list" start="3"><li>Write(): The write() system call is used to write data to a file or other output stream.</li></ol><ol type="1" id="a839c1d5-f420-40fc-bdf6-e8348f5b2c09" class="numbered-list" start="4"><li>Close(): The close() system call is used to close a file descriptor, freeing up system resources.</li></ol><ol type="1" id="34c1c05d-b39b-4855-b026-6f4222c7c8f2" class="numbered-list" start="5"><li>Fork(): The fork() system call is used to create a new process that is a copy of the calling process.</li></ol><ol type="1" id="5273c3bf-b95a-4b2a-870a-2179bc1f4aa1" class="numbered-list" start="6"><li>Exec(): The exec() system call is used to replace the current process with a new process.</li></ol><ol type="1" id="eb44cb79-cbf1-48fc-9bd5-a8be5e73c719" class="numbered-list" start="7"><li>Exit(): The exit() system call is used to terminate the current process.</li></ol><p id="ce5c82ec-9d98-4a51-822d-f6f871e96def" class="">System calls are typically made by invoking a library function provided by the operating system. For example, in the C programming language, the standard library provides wrapper functions for system calls, such as fopen(), fread(), and fwrite().</p></details></li></ul><ul id="420999b4-87ba-4708-bf27-56d893e1713a" class="toggle"><li><details open=""><summary>Q6</summary><p id="4b72fba6-77c8-48ee-a445-48d08e8b3f1a" class="">Process Control Block (PCB) is a data structure that is used by the operating system to manage information about a process. It contains various elements that are used to manage the process and keep track of its state. Some of the important elements of the PCB are:
+Process ID: A unique identifier that is assigned to each process.
+Process state: Indicates whether the process is running, waiting, or ready.
+CPU registers: The current values of the CPU registers for the process.
+Priority: The priority level of the process.
+Memory pointers: The addresses of the memory locations used by the process.
+CPU scheduling information: Information about the CPU scheduling algorithm, such as the process&#x27;s time slice or quantum.
+I/O status information: Information about the I/O devices that the process is using.
+Interleaved I/O is a technique used by the operating system to improve the efficiency of I/O operations. In interleaved I/O, the operating system allows multiple I/O requests to be submitted at the same time. The requests are then serviced in a round-robin fashion, with each request being serviced for a short period of time before moving on to the next request. This allows the operating system to handle multiple I/O requests simultaneously, improving overall system performance.
+CPU burst is the amount of time that a process spends executing on the CPU before it needs to perform I/O or is preempted by the operating system. CPU bursts are usually measured in milliseconds or microseconds. Understanding the CPU burst of a process is important for CPU scheduling algorithms, as it helps to determine the amount of time that the process should be allowed to execute before it is preempted by the operating system. Short CPU bursts are usually preferred, as they allow the CPU to switch between processes more frequently, improving overall system performance</p></details></li></ul><ul id="a0a14609-35ab-43a8-8106-dd8389efba5a" class="toggle"><li><details open=""><summary>Q7</summary><p id="af6d2b12-3026-48e7-b49d-a1e8d6fac403" class="">In computer science, a process is an instance of a running program that is managed by the operating system. A process can be thought of as a container for the program code, data, and resources that are required to run the program. Each process has a unique identifier, called a process ID (PID), which is assigned by the operating system.
+A process can be in one of several states, depending on its current activity and the resources it is using. The process state model is a way of representing these states, which typically include:
+New: The process has just been created and is waiting to be admitted to the system.
+Ready: The process is waiting to be assigned to a processor for execution.
+Running: The process is currently executing on a processor.
+Blocked: The process is waiting for a particular event, such as an I/O operation, to complete.
+Terminated: The process has finished executing and has been removed from the system.
+In addition to these five states, some process state models also include two additional states, which are variants of the Blocked state:
+Suspended Blocked: The process is waiting for an event to complete, but has been temporarily suspended by the operating system. The process cannot be resumed until the event it is waiting for has occurred.
+Suspended Ready: The process is waiting to be assigned to a processor for execution, but has been temporarily suspended by the operating system. The process cannot be resumed until the operating system has allocated a processor for it.
+Here is an example of how the process state model might be represented graphically, including the two suspended states:
+sqlCopy code      +---------------------+      |      New (Admitted) |      +---------------------+                |                v      +---------------------+      |         Ready       |      +---------------------+                |                v      +---------------------+      |        Running      |      +---------------------+                |                v      +---------------------+      |   Suspended Blocked |      +---------------------+                |                v      +---------------------+      |   Suspended Ready   |      +---------------------+                |                v      +---------------------+      |       Blocked       |      +---------------------+                |                v      +---------------------+      |      Terminated     |      +---------------------+In this example, the process starts in the New state, then moves to the Ready state when it is ready to be executed. Once a processor becomes available, the process moves to the Running state. If the process needs to wait for an I/O operation to complete, it moves to the Blocked state. If the operating system decides to suspend the process, it moves to one of the suspended states. Finally, when the process finishes executing, it moves to the Terminated state.</p></details></li></ul><ul id="ffa554b6-e7fd-4dcb-b8e0-fc0441dac9cd" class="toggle"><li><details open=""><summary>Q8</summary><p id="298f3ad9-4625-45af-9f83-e0aea6ef46fa" class="">A thread is a basic unit of execution within a process. It can be thought of as a lightweight process that shares the same memory space as the parent process. Threads allow for parallelism within a process, as multiple threads can execute concurrently, sharing the same resources and memory space.
+There are two types of threads: user level threads and kernel level threads.
+User Level Thread:User level threads are implemented entirely in user space, meaning that the operating system is not aware of their existence. The thread library manages the scheduling of user level threads, and each thread has its own stack and program counter. The advantages of user level threads include lower overhead and faster context switching compared to kernel level threads. However, user level threads are limited by their inability to take advantage of multiple processors and the fact that blocking system calls will block the entire process, including all of its threads.
+Kernel Level Thread:Kernel level threads are implemented and managed by the operating system. Each kernel level thread has its own stack and program counter, and the operating system schedules them directly. Kernel level threads have the advantage of being able to take advantage of multiple processors, and blocking system calls will only block the thread, not the entire process. However, kernel level threads have higher overhead and slower context switching compared to user level threads.
+Here are some differences between user level threads and kernel level threads:
+Implementation: User level threads are implemented in user space, while kernel level threads are implemented in the kernel space.
+Context switching: User level threads have faster context switching, while kernel level threads have slower context switching.
+Resource allocation: User level threads share resources with the process they belong to, while kernel level threads have their own resources.
+System calls: User level threads cannot perform blocking system calls without blocking the entire process, while kernel level threads can perform blocking system calls without blocking other threads in the same process.
+Scalability: Kernel level threads are more scalable than user level threads, as they can take advantage of multiple processors.
+In summary, both user level threads and kernel level threads have their own advantages and disadvantages. User level threads are lightweight and have lower overhead, but are limited in their ability to take advantage of multiple processors. Kernel level threads are more scalable, but have higher overhead and slower context switching. The choice between user level threads and kernel level threads depends on the specific requirements of the application being developed</p></details></li></ul><ul id="512a57c3-9276-4b55-804b-1af71bd59aa2" class="toggle"><li><details open=""><summary>Q9</summary><p id="f1beaa49-0fe4-4bd7-ae0e-c3e2c6506afc" class="">Multithreading is a technique that allows multiple threads of execution to run concurrently within a single process. There are three main multithreading models:
+Many-to-One Model: In this model, many user-level threads are mapped onto a single kernel thread. The thread library manages the scheduling of user-level threads, and the kernel is unaware of their existence. The main advantage of this model is that it has low overhead, but it also has limitations, such as the inability to take advantage of multiple processors and the fact that blocking system calls will block the entire process.
+One-to-One Model: In this model, each user-level thread is mapped onto a kernel thread. This means that the kernel is aware of each user-level thread, and the thread library does not need to manage scheduling. The main advantage of this model is that it can take advantage of multiple processors, and blocking system calls only block the specific thread that made the call, rather than the entire process. However, this model has higher overhead than the many-to-one model, as each thread requires its own kernel resources.
+Many-to-Many Model: In this model, many user-level threads are mapped onto a smaller or equal number of kernel threads. The thread library manages the scheduling of user-level threads, and the kernel is aware of each kernel thread. This model allows for both concurrency and scalability, as multiple user-level threads can execute concurrently on multiple kernel threads, and the number of kernel threads can be adjusted to take advantage of multiple processors. However, this model has higher overhead than the many-to-one model, as each thread requires a certain amount of kernel resources.
+In addition to these three main models, there is also a hybrid model called the two-level model, which combines aspects of both the many-to-one and one-to-one models. In this model, multiple user-level threads are mapped onto a smaller number of kernel threads, but the kernel threads can also spawn additional user-level threads to increase concurrency.
+Overall, the choice of multithreading model depends on the specific requirements of the application being developed. Each model has its own advantages and disadvantages, and the best choice depends on factors such as the number of processors available, the nature of the workload, and the overhead required by the application</p></details></li></ul><ul id="8d6e6096-e96e-42ed-90d7-f431f184911a" class="toggle"><li><details open=""><summary>Q10</summary><p id="a7347451-94cf-490e-ba6c-3c321203d5eb" class="">Sure, the process scheduling criteria are the rules that the operating system uses to determine which process should be executed next on the CPU. The primary goal of process scheduling is to maximize the utilization of the CPU and ensure that all processes are given a fair share of the CPU time. Here are the most common process scheduling criteria:
+CPU Burst Time: The CPU burst time is the amount of time that a process requires to complete its task. Processes with shorter CPU burst times are generally given higher priority because they can complete their work quickly and free up the CPU for other processes.
+Priority: Each process may be assigned a priority value that determines its importance relative to other processes. The operating system can use this priority value to determine which process should be executed next. Higher priority processes are generally given preferential treatment over lower priority processes.
+Deadline: Some processes have hard deadlines by which they must complete their work. The operating system may use the deadline as a scheduling criterion to ensure that the process completes its work on time.
+I/O Operations: Processes that require I/O operations (such as reading from or writing to a disk) may be given lower priority because they spend most of their time waiting for the I/O operation to complete.
+Memory Requirements: Processes that have larger memory requirements may be given lower priority because they may consume a significant amount of system resources.
+Response Time: The response time is the amount of time that elapses between when a user submits a request and when the system responds. The operating system may prioritize processes that have shorter response times to improve overall system performance.
+These are the most common process scheduling criteria used by operating systems. The actual criteria used can vary depending on the specific operating system and the needs of the system&#x27;s users.</p></details></li></ul><p id="5eb46f19-e298-4d0a-9499-a4f0ebf9c7f2" class="">
+</p></div></article></body></html>

@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>BHR</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="913b169a-9688-4801-bdfc-7004604da078" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1535903021127-d50417eae4a3?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="BHR%20913b169a96884801bdfc7004604da078/civil-rights.png"/></div><h1 class="page-title">BHR</h1></header><div class="page-body"><h2 id="01347a8e-0138-421c-bfed-92ff535c1414" class=""><details open=""><summary>Define Liberty, Equality, Fraternity, Civil Society, State.</summary></details></h2><div class="indented"><p id="054be9b2-fe06-418d-9a1d-502a199f123f" class="">Liberty, equality, and fraternity are three key values that underpin the idea of Basic Human Rights. Liberty refers to the freedom of individuals to act and think as they wish, without external constraints. This includes the freedom of speech, religion, and assembly, among others. However, the exercise of liberty is often limited by the need to prevent harm to others or to protect public safety and order.</p><p id="c3d3133f-2232-4458-9dae-a28228dc8878" class="">Equality is the idea that all individuals should be treated fairly and equally under the law, without discrimination based on their race, gender, religion, or any other characteristic. This means that everyone should have equal access to education, employment, and other opportunities, and that everyone should be subject to the same laws and protections.</p><p id="1b8ebaa6-8772-41e9-912f-8a617f7f29e7" class="">Fraternity, or brotherhood, emphasizes the importance of social unity and collective action in achieving common goals. This includes the idea of solidarity among individuals, as well as the importance of working together to promote the common good and protect individual rights and freedoms.</p><p id="b9a45423-b5da-413b-b6bf-0b260a180b46" class="">Civil society refers to the community of citizens who are actively engaged in public life, working to promote the common good and protect individual rights and freedoms. This includes organizations such as NGOs, religious groups, and advocacy groups, which play an important role in promoting human rights and holding governments accountable for their actions.</p><p id="28cbb430-c4e1-4abc-8e4d-bd7d94078836" class="">Finally, the State is the political organization that exercises authority over a particular territory and population, usually through a government with the power to make and enforce laws, maintain order, and provide for the general welfare of its citizens. The State has a responsibility to protect and promote human rights, and to ensure that all individuals are treated fairly and equally under the law.</p><p id="24662e42-3d1c-41f6-bad3-9b4c6889c0b4" class="">Overall, these five concepts are essential to understanding the idea of Basic Human Rights, and their interplay is crucial for ensuring that human rights are protected and upheld in any society.</p></div><h2 id="e7d16697-dfec-4749-8178-4d9ddf664b6f" class=""><details open=""><summary>What is the contribution of the french revolution to the Human rights movement.</summary></details></h2><div class="indented"><p id="9d648678-6288-4ec5-ac33-7893a088c6bb" class="">The French Revolution, which began in 1789 and lasted for a decade, is considered a significant turning point in the history of human rights. The revolutionaries sought to establish a new political order based on the principles of liberty, equality, and fraternity, which led to significant advancements in the recognition and protection of human rights. Here are some specific ways in which the French Revolution contributed to the Human Rights movement:</p><ol type="1" id="e8ca32c9-4735-4ae9-b73a-bd09c90ab6bf" class="numbered-list" start="1"><li>Declaration of the Rights of Man and Citizen: The National Assembly adopted the Declaration of the Rights of Man and Citizen in August 1789, which recognized the inherent rights of all individuals, including liberty, property, and security. It also established the principle of equality before the law, and the right to resist oppression. The declaration became a model for other countries and was later incorporated into the constitutions of many nations.</li></ol><ol type="1" id="2a68fc98-de79-42cb-bb29-821f63f5ed63" class="numbered-list" start="2"><li>Abolition of Feudalism and Slavery: The French Revolution abolished feudalism, which had been a system of social hierarchy that denied certain rights to the lower classes. It also led to the abolition of slavery in French colonies, which was a significant step towards ending the practice worldwide.</li></ol><ol type="1" id="e6a37355-42f5-4656-aa0a-183f4976e4cb" class="numbered-list" start="3"><li>Women&#x27;s Rights: Women played a crucial role in the French Revolution, and their demands for equal rights and citizenship helped to pave the way for future advancements in women&#x27;s rights. Although women did not gain full equality during the Revolution, their efforts laid the groundwork for future feminist movements.</li></ol><ol type="1" id="765560a8-aa41-4b1e-afb3-1ba9ff2a7518" class="numbered-list" start="4"><li>Spread of Revolutionary Ideas: The French Revolution inspired movements for liberty, equality, and democracy throughout Europe and the rest of the world. The revolutionary ideas and values spread beyond France, influencing political and social movements in other countries and contributing to the development of the modern human rights movement.</li></ol><p id="7183b51a-b6a6-4dd0-b066-ddf986271e72" class="">Overall, the French Revolution had a significant impact on the Human Rights movement, providing a blueprint for the recognition and protection of human rights that has continued to influence political and social movements to this day.</p></div><h2 id="da1e138f-e043-4770-a7cf-e7f20f56814b" class=""><details open=""><summary>Define Bill of Rights in detail.</summary></details></h2><div class="indented"><p id="9ad9a0a3-cfed-4d17-be14-73483b47279c" class="">A Bill of Rights is a formal declaration of the individual rights and liberties that are guaranteed and protected by the government. It serves as a foundation for the protection of individual rights against government encroachment and tyranny. Here is a detailed definition of the Bill of Rights:</p><p id="019bfec0-9e2b-44bd-b759-6422364c431a" class="">A Bill of Rights typically consists of a set of amendments to a constitution or a separate document that outlines the fundamental rights of citizens. The first ten amendments to the United States Constitution, which were ratified in 1791, are an example of a Bill of Rights. The amendments address a range of issues, including freedom of speech, religion, and the press, the right to bear arms, and protections against unreasonable searches and seizures.</p><p id="f91a095f-d589-4311-add8-2732e9972208" class="">A Bill of Rights serves as a crucial check on the power of the government by limiting its ability to infringe on the rights and freedoms of its citizens. It establishes a framework for the protection of individual liberties, including due process of law, protection from cruel and unusual punishment, and the right to a fair trial. It also serves as a reminder of the principles upon which a nation was founded and as a symbol of the government&#x27;s commitment to upholding those principles.</p><p id="7fc3880c-a595-4e40-9d6d-c9206780c6af" class="">In addition to its role in protecting individual liberties, a Bill of Rights can also serve as a unifying force for a nation. It provides a common set of values and principles that citizens can rally around, regardless of their political beliefs or background.</p><p id="2d0bda04-3b67-4243-bb2e-a2b85d475909" class="">Overall, a Bill of Rights is a vital component of a democratic society, providing a foundation for the protection of individual liberties and serving as a check on the power of the government. Its provisions are essential for upholding the principles of democracy, freedom, and justice for all citizens.</p></div><h2 id="fcf44a88-89dc-44f8-9c19-e06c446a6b26" class=""><details open=""><summary>Define declaration of rights of the working and exploited people.</summary></details></h2><div class="indented"><p id="afc46228-5572-40ac-9094-a287629742f0" class="">The Declaration of Rights of the Working and Exploited People, also known as the Declaration of the Rights of the Toilers and Exploited, is a document that outlines the rights of workers and other oppressed groups in society. It was first adopted by the Russian Soviet Federative Socialist Republic in 1918, shortly after the Bolshevik Revolution, and has since been used as a model for other declarations of workers&#x27; rights around the world.</p><p id="dc9c8fd5-fd97-4c58-ba77-4f83645d978a" class="">The Declaration asserts the fundamental rights of workers, including the right to work, the right to a living wage, and the right to safe and healthy working conditions. It also recognizes the rights of women, children, and other marginalized groups, and calls for the elimination of all forms of discrimination and exploitation.</p><p id="5b389520-6746-4b49-b487-a093342ef4a3" class="">In addition to outlining the rights of workers, the Declaration also calls for the establishment of a socialist economic system that is based on collective ownership of the means of production and distribution. It advocates for the abolition of the capitalist system, which is seen as exploitative and oppressive, and the establishment of a society that is based on the principles of equality and social justice.</p><p id="a454bcf5-e6bf-4768-a82d-46cb2343b073" class="">The Declaration of Rights of the Working and Exploited People has been influential in the development of workers&#x27; rights movements around the world. It has served as a model for other declarations of workers&#x27; rights, and has inspired labor movements in many countries to fight for better working conditions, higher wages, and more protections for workers. It continues to be an important document in the struggle for social and economic justice, and a reminder of the ongoing struggle for workers&#x27; rights and the abolition of exploitation.</p></div><h2 id="528c7c9a-b21b-484b-a2e2-cb0278670497" class=""><details open=""><summary>Define Human Rights and its origin.</summary></details></h2><div class="indented"><p id="6a33ee54-11bb-413b-917a-a327750300ac" class="">Human rights are the basic and inalienable rights that every human being is entitled to, simply by virtue of being human. These rights are universally recognized and protected by law, and include civil, political, economic, social, and cultural rights.</p><p id="92e1d201-c8c6-4655-b7aa-cf849efddacb" class="">The origins of human rights can be traced back to ancient civilizations, where certain principles of justice and fairness were recognized and practiced. However, it was not until the Enlightenment era in the 18th century that the concept of universal human rights began to take shape. The idea was based on the belief that every individual possesses inherent dignity and worth, and that this dignity entitles them to certain basic rights and freedoms.</p><p id="7c5c0908-7374-4a17-878d-20037be7e648" class="">The first modern human rights document was the Universal Declaration of Human Rights (UDHR), which was adopted by the United Nations General Assembly in 1948. The UDHR outlines the fundamental rights and freedoms that are inherent to all human beings, and has been translated into more than 500 languages and dialects, making it the most widely translated document in the world.</p><p id="02e6651c-1308-4748-bd52-377b37926162" class="">Since the adoption of the UDHR, numerous other international and regional treaties, conventions, and declarations have been developed to further protect and promote human rights. These include the International Covenant on Civil and Political Rights, the International Covenant on Economic, Social and Cultural Rights, the Convention on the Elimination of All Forms of Discrimination Against Women, and many others.</p><p id="5b3dcc71-4ceb-442c-95bc-ca10483e94b8" class="">The recognition and protection of human rights has become a central concern of the international community, and is seen as a fundamental prerequisite for peace, justice, and sustainable development. The origins and development of human rights have been a long and ongoing process, and their protection remains a critical challenge for societies around the world.</p><p id="de0ab519-8fb0-4097-857c-78b4765ccc54" class="">
+</p></div></div></article></body></html>
